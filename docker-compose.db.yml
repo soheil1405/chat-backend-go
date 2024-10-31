@@ -1,0 +1,20 @@
+version: '1.0'
+services:
+  chat-app-postgres-db:
+    image: registry.sikapp.ir/postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=chatApp
+      - POSTGRES_DB=postgres
+    ports:
+      - 24031:5432
+    networks:
+      - backend
+networks:
+  frontend:
+    name: shevi_frontend_network
+    external: true
+  backend:
+    name: shevi_backend_network
+    external: true
